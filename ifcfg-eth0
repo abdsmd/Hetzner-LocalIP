@@ -1,0 +1,22 @@
+Hetzner VPS:
+Edit /etc/sysconfig/network-scripts/ifcfg-eth0:
+
+BOOTPROTO=static
+DEVICE=eth0
+HWADDR=<keep the HWADDR as is!!>
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+IPADDR=<your IPv4 address>
+NETMASK=255.255.255.255
+DNS1=213.133.98.98
+DNS2=213.133.99.99
+IPV6ADDR=<one IPv6 address from your subnet, e.g. 2001:db8:0:3df1::1>/64
+IPV6INIT=yes
+IPV6_DEFAULTGW=fe80::1%eth0
+IPV6_DEFAULTDEV=eth0
+Edit /etc/sysconfig/network-scripts/route-eth0:
+
+ 172.31.1.1/32 dev eth0
+ default via 172.31.1.1 dev eth0
+
